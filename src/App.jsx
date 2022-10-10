@@ -20,23 +20,23 @@ export default function App() {
   }
 
    let googleSignInbutton= useRef(null);
-   let googleSignOutButton = useRef(null);
+    // const googleSignOutButton = useRef(null);
 
     useEffect(() => {
-    window.google.accounts.id.initialize({
+    google.accounts.id.initialize({
       client_id: "541439065925-f2hihosft648nfsi0hoit6ne20dub8ui.apps.googleusercontent.com",
       callback: handleCallbackReponse,
     });
 
-    window.google.accounts.id.renderButton(
+    google.accounts.id.renderButton(
       googleSignInbutton.current,
       {theme:"outline", size: "medium"}
     );
 
-    window.google.accounts.id.renderButton(
-      googleSignOutButton.current,
-      {theme:"outline", size:"small"}
-    )
+    // google.accounts.id.renderButton(
+    //   googleSignOutButton.current,
+    //   {theme:"outline", size:"small"}
+    // )
   
 
   }, []);
@@ -44,20 +44,31 @@ export default function App() {
 
   return ( 
     <>
+      
+      <Login ref={googleSignInbutton}/>
     
-        <BrowserRouter>   
+      <div>
+        <img src={user.picture} alt="" />
+      </div>
+  
+    
+        {/* <BrowserRouter>  
+        <Routes> 
 {
             !user ?
-          <Routes>
+          
             <Route path='/' element={<Login ref={googleSignInbutton}/>} />
-          </Routes>
+         
            :
             <>
-            <Header ref={googleSignOutButton}/>
+            <Route path='/' element={<Header ref={googleSignOutButton}/>} />
+            <Route path='/' element={<img src={user.picture} alt='bonjour' />} />
+            
 
             </>
            }
-        </BrowserRouter> 
+           </Routes>
+        </BrowserRouter>  */}
     </>
   )
 }
