@@ -1,4 +1,6 @@
 import React from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../../ContextBox/ContextBox';
 import  './Header.css';
 import {Link} from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -7,6 +9,7 @@ import VideoCallIcon from '@material-ui/icons/VideoCall';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import  Avatar  from '@material-ui/core/Avatar';
 function Header() {
+    const {user}= useContext(UserContext);
     return (
         <div className='header'>
             <div className='header-left'>

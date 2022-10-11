@@ -55,3 +55,18 @@ span{
     display: flex;
     justify-content: center;
 }
+
+.googleButton{
+    width: 180px;
+    background-color:#101010;
+    color: #fff;
+    text-align: center;
+    padding: 5px 5px;
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppins',arial;
+    font-size: 15px;
+    box-shadow: rgba(0,105,94,0.3) 0px 1px 2px 0px, rgba(88, 255, 208, 0.15) 0px 1px 3px 1px;
+    cursor: pointer;
+}

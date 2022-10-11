@@ -1,74 +1,60 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import jwt_decode from 'jwt-decode';
-import React,{useEffect,useRef, useState} from 'react';
+import React,{useEffect,useState} from 'react';
+import {gapi, loadAuth2} from 'gapi-script';
+import {UserContext} from './ContextBox/ContextBox';
 import Login from './component/connecting/Login';
-import Header from './component/Header/Header';
+import Home from './component/Home/Home';
 
 
 import './App.css'
-   
+
 export default function App() {
 
-   const [user, setUser] =useState({});
-
-
-  function handleCallbackReponse(reponse) {
-    console.log("encoded jwt id token"+ reponse.credential);
-    let userObject= jwt_decode(reponse.credential);
-    console.log(userObject);
-    setUser(user);
-  }
-
-   let googleSignInbutton= useRef(null);
-    // const googleSignOutButton = useRef(null);
-
-    useEffect(() => {
-    google.accounts.id.initialize({
-      client_id: "541439065925-f2hihosft648nfsi0hoit6ne20dub8ui.apps.googleusercontent.com",
-      callback: handleCallbackReponse,
-    });
-
-    google.accounts.id.renderButton(
-      googleSignInbutton.current,
-      {theme:"outline", size: "medium"}
-    );
-
-    // google.accounts.id.renderButton(
-    //   googleSignOutButton.current,
-    //   {theme:"outline", size:"small"}
-    // )
-  
-
+  const [user, setUser] = useState(null)
+  const client_id="541439065925-f2hihosft648nfsi0hoit6ne20dub8ui.apps.googleusercontent.com"
+  useEffect(() =>{
+    const setAuth2 = async () => {
+      const auth2 = await loadAuth2(gapi,client_id,'https://www.googleapis.com/auth/youtube.force-ssl')
+      if(auth2.isSignedIn.get()) {
+        updateUser(auth2.currentUser.get())
+      }else{
+        attachSignin(document.getElementById('customBtn'),auth2);
+      }
+    }
+    setAuth2();
   }, []);
   
+const updateUser = (currentUser) =>{
+  console.log(currentUser);
+  setUser(currentUser);
+};
 
+const attachSignin = (element, auth2) =>{
+  auth2.attachClickHandler(element, {}, (googleUser) => {
+    updateUser(googleUser);
+  }, (error) =>{
+    console.log(JSON.stringify(error))
+  });
+}
   return ( 
     <>
-      
-      <Login ref={googleSignInbutton}/>
-    
-      <div>
-        <img src={user.picture} alt="" />
-      </div>
+      <UserContext.Provider value={{user}} >
   
-    
-        {/* <BrowserRouter>  
-        <Routes> 
-{
-            !user ?
-          
-            <Route path='/' element={<Login ref={googleSignInbutton}/>} />
-         
-           :
-            <>
-            <Route path='/' element={<Header ref={googleSignOutButton}/>} />
-            <Route path='/' element={<img src={user.picture} alt='bonjour' />} />
-            
+       
+        <BrowserRouter>
+          <Routes>
+            {
+              !user ?
+              <Route path="/" element={<Login id='customBtn'/>} />
+              :
+              <>
+                <Route path="/" element={<Home />} />
+              </>
+            }
+          </Routes>
+        </BrowserRouter>
 
-            </>
-           }
-           </Routes>
-        </BrowserRouter>  */}
+      </UserContext.Provider>
     </>
   )
 }
