@@ -1,6 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../../ContextBox/ContextBox';
+import Logout from '../desconnect/Logout';
 import  './Header.css';
 import {Link} from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -8,9 +9,10 @@ import SearchIcon from '@material-ui/icons/Search';
 import VideoCallIcon from '@material-ui/icons/VideoCall';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import  Avatar  from '@material-ui/core/Avatar';
+
 function Header() {
-    const {data}= useContext(UserContext);
-    console.log({data});
+    const {user}= useContext(UserContext);
+    console.log({user});
     return (
         <div className='header'>
             <div className='header-left'>
@@ -24,9 +26,10 @@ function Header() {
                 <input type='text' placeholder='Rechercher' />
             </div>
             <div className='header-right'>
+                <Logout />
                 <VideoCallIcon className='header-icon' />
                 <NotificationsIcon className='header-icon' />
-                <Avatar alt='chacha' src={data.profileImg} />
+                <Avatar alt='chacha' src={user.profileImg} />
             </div>
 
         </div>

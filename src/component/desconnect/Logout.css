@@ -1,0 +1,12 @@
+.google-btn{
+    width: 72px;
+    color: #fff;
+    background-color:#00645D;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'Poppins', arial;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    margin-right: 16px;
+}

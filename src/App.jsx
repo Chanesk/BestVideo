@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import React,{useEffect,useState} from 'react';
 import {gapi, loadAuth2} from 'gapi-script';
 import {UserContext} from './ContextBox/ContextBox';
@@ -27,18 +27,17 @@ export default function App() {
   }, []);
   
 const updateUser = (currentUser) =>{
-  // console.log(currentUser);
+
   const name = currentUser.getBasicProfile().getName();
   const profileImg = currentUser.getBasicProfile().getImageUrl();
   const token = currentUser.xc.access_token;
   setUser({
     name: name,
     profileImg: profileImg,
-    token: token
   });
   
-  window.localStorage.setItem('datas',JSON.stringify(user));
-  let datas = JSON.parse(window.localStorage.getItem('datas'))
+  let datas = window.localStorage.getItem('datas')
+  localStorage.setItem('datas',(token));
   setData(datas)
 };
 console.log(data);
@@ -53,21 +52,20 @@ const attachSignin = (element, auth2) =>{
 }
   return ( 
     <>
-      <UserContext.Provider value={{data}} >
+    
+      <UserContext.Provider value={{data, user, setUser}} >
   
-       
-        <BrowserRouter>
           <Routes>
             {
               !user ?
               <Route path="/" element={<Login id='customBtn'/>} />
               :
               <>
-                <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home />} />
               </>
+              
             }
           </Routes>
-        </BrowserRouter>
 
       </UserContext.Provider>
     </>
