@@ -9,7 +9,8 @@ import VideoCallIcon from '@material-ui/icons/VideoCall';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import  Avatar  from '@material-ui/core/Avatar';
 function Header() {
-    const {user}= useContext(UserContext);
+    const {data}= useContext(UserContext);
+    console.log({data});
     return (
         <div className='header'>
             <div className='header-left'>
@@ -25,7 +26,7 @@ function Header() {
             <div className='header-right'>
                 <VideoCallIcon className='header-icon' />
                 <NotificationsIcon className='header-icon' />
-                <Avatar alt='chacha' src='https://yt3.ggpht.com/yti/AJo0G0mA6dbYGO80GmRgngV5nAayPuBsH-7bRSYZE8y9=s88-c-k-c0x00ffffff-no-rj-mo' />
+                <Avatar alt='chacha' src={data.profileImg} />
             </div>
 
         </div>

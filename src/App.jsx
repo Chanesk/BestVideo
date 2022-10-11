@@ -10,8 +10,10 @@ import './App.css'
 
 export default function App() {
 
-  const [user, setUser] = useState(null)
-  const client_id="541439065925-f2hihosft648nfsi0hoit6ne20dub8ui.apps.googleusercontent.com"
+  const [user, setUser] = useState(null);
+  const [data, setData] = useState(null);
+
+  const client_id="541439065925-f2hihosft648nfsi0hoit6ne20dub8ui.apps.googleusercontent.com";
   useEffect(() =>{
     const setAuth2 = async () => {
       const auth2 = await loadAuth2(gapi,client_id,'https://www.googleapis.com/auth/youtube.force-ssl')
@@ -25,9 +27,22 @@ export default function App() {
   }, []);
   
 const updateUser = (currentUser) =>{
-  console.log(currentUser);
-  setUser(currentUser);
+  // console.log(currentUser);
+  const name = currentUser.getBasicProfile().getName();
+  const profileImg = currentUser.getBasicProfile().getImageUrl();
+  const token = currentUser.xc.access_token;
+  setUser({
+    name: name,
+    profileImg: profileImg,
+    token: token
+  });
+  
+  window.localStorage.setItem('datas',JSON.stringify(user));
+  let datas = JSON.parse(window.localStorage.getItem('datas'))
+  setData(datas)
 };
+console.log(data);
+
 
 const attachSignin = (element, auth2) =>{
   auth2.attachClickHandler(element, {}, (googleUser) => {
@@ -38,7 +53,7 @@ const attachSignin = (element, auth2) =>{
 }
   return ( 
     <>
-      <UserContext.Provider value={{user}} >
+      <UserContext.Provider value={{data}} >
   
        
         <BrowserRouter>
