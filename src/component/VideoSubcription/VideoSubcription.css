@@ -1,0 +1,22 @@
+.sub-medium{
+    display: flex;
+    height: 40px;
+    align-items: center;
+
+}
+
+.sub-img{
+    height: 15px;
+    border-radius: 50%;
+    box-sizing: content-box;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+img{
+    border-radius: 50%;
+    width: 24px;
+}
+.sub-title{
+    font-family: 'Poppins', arial;
+    font-size: 12px;
+}

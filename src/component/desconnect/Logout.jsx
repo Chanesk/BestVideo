@@ -25,7 +25,7 @@ import './Logout.css'
       });
     }
     return(
-        <div id='btn-logout' onClick={signOut} className='google-btn'>Desconnect</div>
+        <div id='btn-logout' onClick={signOut} className='google-btn'>Disconnect</div>
     )
 }
 
