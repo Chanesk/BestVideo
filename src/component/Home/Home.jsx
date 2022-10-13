@@ -9,10 +9,10 @@ const Home = () =>{
     return(
         <>
         <div>
-            <Header />
+            {/* <Header /> */}
         </div>
         <div className='video-box'>
-            <SideBar />
+            {/* <SideBar /> */}
             <ViewVideo />
         </div>
         </>

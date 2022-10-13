@@ -1,13 +1,18 @@
 import { useParams,Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './ViewVideo.css'
+import axios from 'axios';
 
 const SubcriptionVideo = () =>{
     let {channelId}= useParams();
     const [channel, setChannel] = useState([]);
 
     useEffect(()=>{
-fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=21&key=AIzaSyBgDejVRUB1-sRFR8tMY1nm8VZb8jPz_o0`)
+axios(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=21&key=AIzaSyBgDejVRUB1-sRFR8tMY1nm8VZb8jPz_o0`,{
+    headers:{
+        Accept: "application/json"
+    }
+})
         .then(response =>{
             return response.json()
         })

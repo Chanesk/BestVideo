@@ -8,6 +8,9 @@ import ViewVideo from './component/ViewVideo/ViewVideo';
 import PlayerVideo from './component/PlayerVideo/PlayerVideo'
 
 import './App.css'
+import './component/Home/Home.css'
+import Header from './component/Header/Header';
+import SideBar from './component/SideBar/SideBar';
 
 export default function App() {
 
@@ -56,19 +59,24 @@ const attachSignin = (element, auth2) =>{
     
       <UserContext.Provider value={{data, user, setUser}} >
   
-          <Routes>
             {
               !user ?
-              <Route path="/" element={<Login id='customBtn'/>} />
+              <Login id='customBtn'/>
               :
               <>
+              <Header/>
+              <div className='video-box'>
+                <SideBar/>
+              </div>
+              
+          <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/viewvideo/:channelId" element={<ViewVideo/>}/>
               <Route path="/playervideo/:videoId" element={<PlayerVideo />} />
+          </Routes>
               </>
               
             }
-          </Routes>
 
       </UserContext.Provider>
     </>
