@@ -25,6 +25,7 @@
     object-fit: contain;
     width: 100%;
     height: 300px;
+    border-radius: 0%;
 }
 .content-login{
     width: 50%;
