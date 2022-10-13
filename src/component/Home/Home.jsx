@@ -1,17 +1,21 @@
 import React from 'react';
 import Header from '../Header/Header';
 import SideBar from '../SideBar/SideBar';
-import VideoSubcription from '../VideoSubcription/VideoSubcription';
-
+import ViewVideo from '../ViewVideo/ViewVideo';
+import './Home.css'
 
 const Home = () =>{
 
     return(
+        <>
         <div>
             <Header />
-            <SideBar />
-            <VideoSubcription />
         </div>
+        <div className='video-box'>
+            <SideBar />
+            <ViewVideo />
+        </div>
+        </>
     )
 }
 

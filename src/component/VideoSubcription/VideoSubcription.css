@@ -2,7 +2,7 @@
     display: flex;
     height: 40px;
     align-items: center;
-
+    text-overflow: ellipsis;
 }
 
 .sub-img{
@@ -19,4 +19,7 @@ img{
 .sub-title{
     font-family: 'Poppins', arial;
     font-size: 12px;
+    padding-top: 5px;
+    color: #b2b2b2;
+    
 }

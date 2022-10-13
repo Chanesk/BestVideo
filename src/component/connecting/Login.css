@@ -1,5 +1,5 @@
 .bck-login{
-    background: linear-gradient(89.94deg, #000000 0.05%, #00645D 98.91%);
+    background: conic-gradient(from 89.89deg at 50% 47.61%, #003E3A -27.49deg, #000000 47.29deg, #009A65 146.8deg, #000000 177.63deg, #003E3A 332.51deg, #000000 407.29deg);
     height: 100vh;
     width: 100%;
     position: relative;

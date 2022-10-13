@@ -4,7 +4,8 @@ import {gapi, loadAuth2} from 'gapi-script';
 import {UserContext} from './ContextBox/ContextBox';
 import Login from './component/connecting/Login';
 import Home from './component/Home/Home';
-
+import ViewVideo from './component/ViewVideo/ViewVideo';
+import PlayerVideo from './component/PlayerVideo/PlayerVideo'
 
 import './App.css'
 
@@ -62,6 +63,8 @@ const attachSignin = (element, auth2) =>{
               :
               <>
               <Route path="/" element={<Home />} />
+              <Route path="/viewvideo/:channelId" element={<ViewVideo/>}/>
+              <Route path="/playervideo/:videoId" element={<PlayerVideo />} />
               </>
               
             }

@@ -1,12 +1,14 @@
 import React from 'react';
 import SideBarRow from '../SideBarRow/SideBarRow';
+import VideoSubcription from '../VideoSubcription/VideoSubcription';
 import './SideBar.css';
-import WatchLaterIcon from '@material-ui/icons/WatchLater';
+import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
 
 const SideBar = () =>{
     return (
         <div className='sidebar'>
-            <SideBarRow Icon={WatchLaterIcon} title='Watch later' />
+            <SideBarRow Icon={SubscriptionsIcon} title='Subcription' />
+            <VideoSubcription />
         </div>
     )
 }
