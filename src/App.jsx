@@ -3,7 +3,8 @@ import React,{useEffect,useState} from 'react';
 import {gapi, loadAuth2} from 'gapi-script';
 import {UserContext} from './ContextBox/ContextBox';
 import Login from './component/connecting/Login';
-import Header from './component/Header/Header'
+import Home from './component/Home/Home';
+import Header from './component/Header/Header';
 import ViewVideo from './component/ViewVideo/ViewVideo';
 import PlayerVideo from './component/PlayerVideo/PlayerVideo'
 import SideBar from './component/SideBar/SideBar';
@@ -68,7 +69,7 @@ const attachSignin = (element, auth2) =>{
               <div className='container-palyer'>
                 <SideBar />
           <Routes>
-              {/* <Route path="/" element={<Home />} /> */}
+              <Route path='/' element={<Home />} />
               <Route path="/viewvideo/:channelId" element={<ViewVideo/>}/>
               <Route path="/playervideo/:videoId" element={<PlayerVideo />} />
           </Routes>

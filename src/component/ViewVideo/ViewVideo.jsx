@@ -1,7 +1,6 @@
 import { useParams,Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import './ViewVideo.css'
-import axios from 'axios';
+import './ViewVideo.css';
 
 const SubcriptionVideo = () =>{
     let {channelId}= useParams();
@@ -18,7 +17,9 @@ const SubcriptionVideo = () =>{
     
         })
         .catch((error)=> console.log(error))
-    },[])
+    },[]);
+
+
     return (
         <>
         <div  className='sub-video'>
