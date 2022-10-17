@@ -12,3 +12,9 @@ body, html{
 a {
   text-decoration: none;
 }
+
+
+.container-palyer{
+  display:flex ;
+  background-color: #000;
+}

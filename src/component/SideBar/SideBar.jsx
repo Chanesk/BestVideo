@@ -6,11 +6,15 @@ import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
 
 const SideBar = () =>{
     return (
-        <div className='sidebar'>
-            <SideBarRow Icon={SubscriptionsIcon} title='Subcription' />
-            <VideoSubcription />
-        </div>
+        <>
+        
+            <div className='sidebar'>
+                <SideBarRow Icon={SubscriptionsIcon} title='Subcription' />
+                <VideoSubcription />
+            </div>
+        </>
     )
+        
 }
 
 export default SideBar

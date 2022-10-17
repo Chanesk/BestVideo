@@ -7,15 +7,15 @@
 }
 
 .card-video{
-    width: 180px;
+    width: 150px;
     background-color: #181818;
     cursor: pointer;
-    margin: 1em;
+    margin: 10px;
     border-radius: 10px;
 }
 
 .card-img{
-    width: 160px;
+    width: 130px;
     padding: 10px;
 }
 

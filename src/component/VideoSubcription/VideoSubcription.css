@@ -21,5 +21,8 @@ img{
     font-size: 12px;
     padding-top: 5px;
     color: #b2b2b2;
-    
+    height: 20px;
+    width: 100px;
+    overflow: hidden;
+    margin-top: 5px;
 }

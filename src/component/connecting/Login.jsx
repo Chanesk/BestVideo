@@ -8,6 +8,7 @@ import imgcover from '../asset/imgcover.svg';
 const Login= (props) => {
 //    const {attachSignin}= useContext(UserContext);
     return(
+        <>
         <main className="bck-login">
             <div className="cover-login">
                 <div className="box-cover">
@@ -25,6 +26,7 @@ const Login= (props) => {
             </div>
             
         </main> 
+        </>
     )
 }
 export default Login

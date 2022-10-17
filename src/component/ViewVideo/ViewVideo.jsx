@@ -7,12 +7,8 @@ const SubcriptionVideo = () =>{
     let {channelId}= useParams();
     const [channel, setChannel] = useState([]);
 
-    useEffect(()=>{
-axios(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=21&key=AIzaSyBgDejVRUB1-sRFR8tMY1nm8VZb8jPz_o0`,{
-    headers:{
-        Accept: "application/json"
-    }
-})
+    useEffect(()=> { fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=20&key=AIzaSyBgDejVRUB1-sRFR8tMY1nm8VZb8jPz_o0`)
+
         .then(response =>{
             return response.json()
         })

@@ -14,11 +14,7 @@ const VideoSubcription = () => {
     useEffect(() =>{
         const setSubscribeVideo = async() =>{
             try{
-                const reponse= await axios('https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet&maxResults=20&mine=true&key=AIzaSyBgDejVRUB1-sRFR8tMY1nm8VZb8jPz_o0', {
-                    headers:{
-                        Authorization: `Bearer ${data}`
-                    }
-                });
+                const reponse= await fetch('https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet&maxResults=21&mine=true&key=AIzaSyBgDejVRUB1-sRFR8tMY1nm8VZb8jPz_o0&access_token='+ data)
                 const subscribe = await reponse.json();
                 setSubscribe(subscribe)
                 console.log(subscribe.items);
@@ -28,7 +24,7 @@ const VideoSubcription = () => {
             }
         }
         setSubscribeVideo()
-    }, [data])
+    }, [])
 
     return(
     <>

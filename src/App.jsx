@@ -3,14 +3,13 @@ import React,{useEffect,useState} from 'react';
 import {gapi, loadAuth2} from 'gapi-script';
 import {UserContext} from './ContextBox/ContextBox';
 import Login from './component/connecting/Login';
-import Home from './component/Home/Home';
+import Header from './component/Header/Header'
 import ViewVideo from './component/ViewVideo/ViewVideo';
 import PlayerVideo from './component/PlayerVideo/PlayerVideo'
+import SideBar from './component/SideBar/SideBar';
 
 import './App.css'
-import './component/Home/Home.css'
-import Header from './component/Header/Header';
-import SideBar from './component/SideBar/SideBar';
+
 
 export default function App() {
 
@@ -56,6 +55,7 @@ const attachSignin = (element, auth2) =>{
 }
   return ( 
     <>
+    <main className='container'>
     
       <UserContext.Provider value={{data, user, setUser}} >
   
@@ -64,21 +64,21 @@ const attachSignin = (element, auth2) =>{
               <Login id='customBtn'/>
               :
               <>
-              <Header/>
-              <div className='video-box'>
-                <SideBar/>
-              </div>
-              
+                <Header />
+              <div className='container-palyer'>
+                <SideBar />
           <Routes>
-              <Route path="/" element={<Home />} />
+              {/* <Route path="/" element={<Home />} /> */}
               <Route path="/viewvideo/:channelId" element={<ViewVideo/>}/>
               <Route path="/playervideo/:videoId" element={<PlayerVideo />} />
           </Routes>
+              </div>
               </>
               
             }
 
       </UserContext.Provider>
+    </main>
     </>
   )
 }
