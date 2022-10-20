@@ -1,5 +1,17 @@
-.video-box{
+.video-pop{
     flex: 0.8;
-color: beige;
-border: red 1px solid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #1C1C1C;
+}
+
+.card-titlepop{
+
+    font-size: 1Opx;
+    padding-top: 5px;
+    color: #b2b2b2;
+    height: 29px;
+    width: 100px;
+    overflow: hidden;
 }

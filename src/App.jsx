@@ -44,7 +44,6 @@ const updateUser = (currentUser) =>{
   localStorage.setItem('datas',(token));
   setData(datas)
 };
-console.log(data);
 
 
 const attachSignin = (element, auth2) =>{
@@ -72,6 +71,7 @@ const attachSignin = (element, auth2) =>{
               <Route path='/' element={<Home />} />
               <Route path="/viewvideo/:channelId" element={<ViewVideo/>}/>
               <Route path="/playervideo/:videoId" element={<PlayerVideo />} />
+              <Route path="/search/:searchQuery" element={<SearchPage />} />
           </Routes>
               </div>
               </>

@@ -13,7 +13,6 @@ const SubcriptionVideo = () =>{
         })
         .then(data =>{
             setChannel(data.items);
-            console.log(data.items);
     
         })
         .catch((error)=> console.log(error))

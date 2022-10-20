@@ -12,7 +12,6 @@ import  Avatar  from '@material-ui/core/Avatar';
 
 function Header() {
     const {user}= useContext(UserContext);
-    console.log({user});
     return (
         <div className='header'>
             <div className='header-left'>
