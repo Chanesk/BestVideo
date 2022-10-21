@@ -8,6 +8,7 @@ import Header from './component/Header/Header';
 import ViewVideo from './component/ViewVideo/ViewVideo';
 import PlayerVideo from './component/PlayerVideo/PlayerVideo'
 import SideBar from './component/SideBar/SideBar';
+import SearchPage from './component/SearchPage/SearchPage';
 
 import './App.css'
 
@@ -71,7 +72,7 @@ const attachSignin = (element, auth2) =>{
               <Route path='/' element={<Home />} />
               <Route path="/viewvideo/:channelId" element={<ViewVideo/>}/>
               <Route path="/playervideo/:videoId" element={<PlayerVideo />} />
-              <Route path="/search/:searchQuery" element={<SearchPage />} />
+              <Route path="/search/" element={<SearchPage />} />
           </Routes>
               </div>
               </>

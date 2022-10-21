@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../../ContextBox/ContextBox';
 import Logout from '../desconnect/Logout';
@@ -12,6 +12,7 @@ import  Avatar  from '@material-ui/core/Avatar';
 
 function Header() {
     const {user}= useContext(UserContext);
+    const [inputSearch, setInputSearch] = useState('');
     return (
         <div className='header'>
             <div className='header-left'>
@@ -21,7 +22,9 @@ function Header() {
                </Link>
             </div>
             <div className='header-center'>
-                <SearchIcon className='icon-search'/>
+                <Link to={`/search/${inputSearch}`} >
+                    <SearchIcon className='icon-search'/>
+                </Link>
                 <input type='text' placeholder='Rechercher' />
             </div>
             <div className='header-right'>
