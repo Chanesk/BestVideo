@@ -6,7 +6,7 @@ const SubcriptionVideo = () =>{
     let {channelId}= useParams();
     const [channel, setChannel] = useState([]);
 
-    useEffect(()=> { fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=20&key=AIzaSyBgDejVRUB1-sRFR8tMY1nm8VZb8jPz_o0`)
+    useEffect(()=> { fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=20&key=${import.meta.env.VITE_YOUTUBE_API_KEY}`)
 
         .then(response =>{
             return response.json()
@@ -31,7 +31,6 @@ const SubcriptionVideo = () =>{
                       <div className="card-content">
                           <div>
                             <p className='card-title'>{video.snippet.title}</p>
-                            <p>{video.snippet.channelTitle}</p>
                           </div>
                       </div>
                   </div>

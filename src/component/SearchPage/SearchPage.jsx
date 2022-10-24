@@ -5,13 +5,14 @@ import './SearchPage.css';
 
 const SearchPage = () =>{
 
-    let {searchQuery} = useParams();
+    let {inputSearch} = useParams();
     const [videoRows, setVideoRows]= useState([]);
 
         useEffect(() =>{
+            console.log(inputSearch);
         const setSearchVideo = async() =>{
             try{
-                const reponse= await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${searchQuery}&safeSearch=none&type=video&key=AIzaSyBgDejVRUB1-sRFR8tMY1nm8VZb8jPz_o0` )
+                const reponse= await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=24&q=${inputSearch}&key=${import.meta.env.VITE_YOUTUBE_API_KEY}`)
                 const searchVideo = await reponse.json();
                 console.log(searchVideo);
                 setVideoRows(searchVideo.items);
@@ -21,7 +22,7 @@ const SearchPage = () =>{
             }
         }
         setSearchVideo();
-    }, [searchQuery]) ;   
+    }, [inputSearch]) ;   
     return(
         <>
         <div className='videorow'>

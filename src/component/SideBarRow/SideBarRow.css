@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     padding-left: 10px;
-    border-radius: 0px 10px 10px 0px;
     
 }
 
@@ -14,13 +13,14 @@
 .sidebarrow-title{
     flex: 1;
     margin-left: 10px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     color: #b2b2b2;
+    font-family: 'Poppins', arial;
 }
 
 .sidebarrow:hover{
-    background-color: #221B2C;
+    color: #00645D;
     cursor: pointer;
 }
 

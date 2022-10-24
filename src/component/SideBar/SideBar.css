@@ -3,3 +3,10 @@
     justify-content: flex-start;
 }
 
+.video-sub{
+    margin-top: 5px;
+}
+
+.box-video-sub{
+    margin-top: -10px;
+}

@@ -12,7 +12,8 @@ const VideoSubcription = () => {
     useEffect(() =>{
         const setSubscribeVideo = async() =>{
             try{
-                const reponse= await fetch('https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet&maxResults=21&mine=true&key=AIzaSyBgDejVRUB1-sRFR8tMY1nm8VZb8jPz_o0&access_token='+ data)
+                const reponse= await fetch(`https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet&maxResults=21&mine=true&key=${import.meta.env.VITE_YOUTUBE_API_KEY}&access_token=`+ data)
+    
                 const subscribe = await reponse.json();
                 setSubscribe(subscribe)
             }
@@ -22,7 +23,6 @@ const VideoSubcription = () => {
         }
         setSubscribeVideo()
     }, [])
-    // console.log(subscribe.items.snippet);
 
     return(
     <>

@@ -18,7 +18,8 @@ export default function App() {
   const [user, setUser] = useState(null);
   const [data, setData] = useState(null);
 
-  const client_id="541439065925-f2hihosft648nfsi0hoit6ne20dub8ui.apps.googleusercontent.com";
+  const client_id="541439065925-f2hihosft648nfsi0hoit6ne20dub8ui.apps.googleusercontent.com"
+  
   useEffect(() =>{
     const setAuth2 = async () => {
       const auth2 = await loadAuth2(gapi,client_id,'https://www.googleapis.com/auth/youtube.force-ssl')
@@ -72,7 +73,7 @@ const attachSignin = (element, auth2) =>{
               <Route path='/' element={<Home />} />
               <Route path="/viewvideo/:channelId" element={<ViewVideo/>}/>
               <Route path="/playervideo/:videoId" element={<PlayerVideo />} />
-              <Route path="/search/" element={<SearchPage />} />
+              <Route path="/search/:inputSearch" element={<SearchPage />} />
           </Routes>
               </div>
               </>

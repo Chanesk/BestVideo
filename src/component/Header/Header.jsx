@@ -10,9 +10,11 @@ import VideoCallIcon from '@material-ui/icons/VideoCall';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import  Avatar  from '@material-ui/core/Avatar';
 
+
 function Header() {
     const {user}= useContext(UserContext);
     const [inputSearch, setInputSearch] = useState('');
+
     return (
         <div className='header'>
             <div className='header-left'>
@@ -25,7 +27,7 @@ function Header() {
                 <Link to={`/search/${inputSearch}`} >
                     <SearchIcon className='icon-search'/>
                 </Link>
-                <input type='text' placeholder='Rechercher' />
+                <input type='text'onChange={(e) =>setInputSearch(e.target.value)} value={inputSearch} placeholder='Rechercher'/>
             </div>
             <div className='header-right'>
                 <Logout />

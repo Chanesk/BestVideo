@@ -10,9 +10,12 @@ const SideBar = () =>{
         <>
                 <div className='sidebar'>
                     <SideBarRow Icon={HomeIcon} title='Home' />
-                    <SideBarRow Icon={SubscriptionIcon} title ='Subscription' />
-                    <h2></h2>
-                    <VideoSubcription />
+                    <div className='video-sub'>
+                        <SideBarRow Icon={SubscriptionIcon} title ='Subscription' className='title-sub'/>
+                        <div className='box-video-sub'>
+                            <VideoSubcription  />
+                        </div>
+                    </div>
                 </div>
            
         </>
