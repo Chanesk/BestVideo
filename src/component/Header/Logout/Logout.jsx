@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import { gapi, loadAuth2 } from 'gapi-script';
 import { useContext } from 'react';
-import { UserContext } from '../../ContextBox/ContextBox';
+import { UserContext } from '../../../ContextBox/ContextBox';
 import './Logout.css'
 
 

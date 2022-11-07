@@ -1,5 +1,5 @@
 .video-pop{
-    flex: 0.8;
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

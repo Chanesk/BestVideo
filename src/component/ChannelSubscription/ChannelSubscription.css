@@ -1,3 +1,4 @@
+
 .sub-medium{
     display: flex;
     height: 40px;
@@ -24,4 +25,7 @@ img{
     width: 200px;
     overflow: hidden;
     margin-top: 5px;
+}
+div{
+    color: #b2b2b2;
 }

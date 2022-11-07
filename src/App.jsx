@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import React,{useEffect,useState} from 'react';
 import {gapi, loadAuth2} from 'gapi-script';
 import {UserContext} from './ContextBox/ContextBox';
-import Login from './component/connecting/Login';
+import Login from './component/Login/Login';
 import Home from './component/Home/Home';
 import Header from './component/Header/Header';
 import ViewVideo from './component/ViewVideo/ViewVideo';
@@ -17,7 +17,9 @@ export default function App() {
 
   const [user, setUser] = useState(null);
   const [data, setData] = useState(null);
+  const [sidebar,setSideBar] = useState(false);
 
+  const showSidebar = () => setSideBar(!sidebar);
   const client_id="541439065925-f2hihosft648nfsi0hoit6ne20dub8ui.apps.googleusercontent.com"
   
   useEffect(() =>{
@@ -59,7 +61,7 @@ const attachSignin = (element, auth2) =>{
     <>
     <main className='container'>
     
-      <UserContext.Provider value={{data, user, setUser}} >
+      <UserContext.Provider value={{data, user, setUser, showSidebar, sidebar}} >
   
             {
               !user ?

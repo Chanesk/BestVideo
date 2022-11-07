@@ -1,10 +1,13 @@
 import { useParams,Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../../ContextBox/ContextBox';
 import './ViewVideo.css';
 
 const SubcriptionVideo = () =>{
     let {channelId}= useParams();
     const [channel, setChannel] = useState([]);
+    const {sidebar}= useContext(UserContext);
 
     useEffect(()=> { fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=20&key=${import.meta.env.VITE_YOUTUBE_API_KEY}`)
 
@@ -13,6 +16,7 @@ const SubcriptionVideo = () =>{
         })
         .then(data =>{
             setChannel(data.items);
+            console.log(data.items);
     
         })
         .catch((error)=> console.log(error))
@@ -21,7 +25,7 @@ const SubcriptionVideo = () =>{
 
     return (
         <>
-        <div  className='sub-video'>
+        <div  className='sub-video' style={{width: sidebar? "100%" : "80%"}}>
         {channel?.map((video,index) => {
             const videoId=video.id.videoId;
           return (

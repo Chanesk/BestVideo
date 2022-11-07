@@ -6,7 +6,7 @@ import './Home.css'
 
 const Home = () =>{
     const [videoPop, setVideoPop]= useState([]);
-    const {data}= useContext(UserContext);
+    const {data, sidebar}= useContext(UserContext);
 
         useEffect(() =>{
         const setVideopopu = async() =>{
@@ -24,7 +24,7 @@ const Home = () =>{
 
     return(
         <>
-        <div className='video-pop'>
+        <div className='video-pop' style={{width: sidebar? "100%" : "80%"}}>
             {
                 videoPop.items?.map((videopop,index)=> {
                     const videoId= videopop.id;
@@ -40,7 +40,7 @@ const Home = () =>{
                                     <p className='card-titlepop'> {videopop.snippet.localized.title} </p>
                                 </div>
                             </div>
-                         </Link>
+                        </Link>
                     )
                 })
             }

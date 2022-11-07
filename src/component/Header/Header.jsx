@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../../ContextBox/ContextBox';
-import Logout from '../desconnect/Logout';
+import Logout from './Logout/Logout';
 import  './Header.css';
 import {Link} from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -12,13 +12,13 @@ import  Avatar  from '@material-ui/core/Avatar';
 
 
 function Header() {
-    const {user}= useContext(UserContext);
+    const {user, showSidebar}= useContext(UserContext);
     const [inputSearch, setInputSearch] = useState('');
 
     return (
         <div className='header'>
             <div className='header-left'>
-               <MenuIcon className='icon-menu'/>
+               <MenuIcon className='icon-menu' onClick={showSidebar}/>
                <Link to='/'>
                 <h2>BESTVIDEO</h2> 
                </Link>

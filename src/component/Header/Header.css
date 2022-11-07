@@ -39,7 +39,7 @@
     height: 32px;
     padding-left: 32px;
     border-radius: 5px;
-    background-color: #221B2C;
+    background-color: #1c1C1C;;
     border: none;
     color: #b2b2b2;
     font-family: 'Poppins', arial;
@@ -54,5 +54,10 @@
 .header-icon{
     margin-right: 12px;
     color: #fff;
+}
+.header-icon:hover{
+    margin-right: 12px;
+    color: #00645D;
+    cursor: pointer;
 }
 

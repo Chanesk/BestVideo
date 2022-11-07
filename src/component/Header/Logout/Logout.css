@@ -10,3 +10,8 @@
     cursor: pointer;
     margin-right: 16px;
 }
+
+.google-btn:hover{
+    color: #fff;
+    background-color: #00645D;
+}

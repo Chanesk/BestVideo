@@ -17,4 +17,5 @@ a {
 .container-palyer{
   display:flex ;
   background-color: #000;
+  height: 100%;
 }
