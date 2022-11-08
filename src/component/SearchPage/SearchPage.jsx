@@ -39,7 +39,7 @@ const SearchPage = () =>{
         <div className='videorow' style={{width: sidebar? "100%" : "80%"}}>
             {videoRows?.map((item, index)=>(
             
-                <Link key={index} className="cards" to={`/playervideo/item.id.videoId`}>
+                <Link key={index} className="videorow-cards" to={`/playervideo/${item.id.videoId}`}>
                     <div className='videorow-image'>
                         <img className='videorow-logo' src={item.snippet.thumbnails.medium.url} alt="" />
                     </div>

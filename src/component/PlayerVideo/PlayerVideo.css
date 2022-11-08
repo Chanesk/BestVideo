@@ -1,7 +1,9 @@
 .video-box{
     width: 80%;
-    /* justify-content: center; */
+    justify-content: center;
     background-color: #1C1C1C;
     padding-top: 20px ;
-    padding-left: 40px;
+    /* padding-left: 40px; */
+    margin-right: auto;
+    margin-left: auto;
 }

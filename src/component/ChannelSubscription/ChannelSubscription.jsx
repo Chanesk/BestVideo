@@ -16,7 +16,7 @@ const ChannelSubscription = () => {
     
                 const subscribe = await reponse.json();
                 setSubscribe(subscribe.items)
-                console.log(subscribe);
+                // console.log(subscribe);
             }
             catch(error){
                 console.log("error", error);
