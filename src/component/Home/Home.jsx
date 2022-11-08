@@ -2,6 +2,7 @@ import React,  { useEffect, useState} from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../../ContextBox/ContextBox';
 import  {Link} from 'react-router-dom';
+import moment from 'moment';
 import './Home.css'
 
 const Home = () =>{
@@ -14,6 +15,7 @@ const Home = () =>{
                 const reponse= await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&key=${import.meta.env.VITE_YOUTUBE_API_KEY}}&access_token=`+ data)
                 const videoPop = await reponse.json();
                 setVideoPop(videoPop);
+                console.log(videoPop);
             }
             catch(error){
                 console.log("error", error);
@@ -28,16 +30,20 @@ const Home = () =>{
             {
                 videoPop.items?.map((videopop,index)=> {
                     const videoId= videopop.id;
+                    const views= videopop.statistics.viewCount;
+                    const time=videopop.snippet.publishedAt;
                     
                     return(
-                        <Link key={index} className="cards" to={`/playervideo/${videoId}`}>
+                        <Link key={index} className="cards-videopop" to={`/playervideo/${videoId}`}>
                             <div className='card-video'>
-                                <div className='card-img'>
+                                <div className='cardpop-img'>
                                     <img src={videopop.snippet.thumbnails.medium.url} alt="" /> 
+                                    <p className='card-titlepop-duration'>{moment.utc((moment.duration(`${videopop.contentDetails.duration}`).asSeconds())*1000).format("mm:ss")}</p>
                                 </div>
-                                <div className='card-content'>
-                                    <p  className='card-title'> {videopop.snippet.channelTitle} </p>
-                                    <p className='card-titlepop'> {videopop.snippet.localized.title} </p>
+                                <div className='cardpop-content'>
+                                    <p  className='card-titlepop'> {videopop.snippet.channelTitle} </p>
+                                    <p className='card-titlepop-content'> {videopop.snippet.localized.title} </p>
+                                    <p className='card-titlepop-stat'>{views} views • {moment(time,"YYYYMMDD").fromNow()}</p>
                                 </div>
                             </div>
                         </Link>

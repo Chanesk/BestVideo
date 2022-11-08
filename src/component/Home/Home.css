@@ -6,12 +6,44 @@
     background-color: #1C1C1C;
 }
 
-.card-titlepop{
+.cardpop-content{
+    padding: 10px;
+}
 
-    font-size: 1Opx;
-    padding-top: 5px;
+.cardpop-img{
+    position: relative;
+    width: 190px;
+    padding: 15px; 
+}
+
+
+.card-titlepop{
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    margin: 0px;
+}
+
+.card-titlepop-content{
+    font-size: 12px;
     color: #b2b2b2;
-    height: 29px;
-    width: 100px;
+    height: 15px;
+    width: 180px;
     overflow: hidden;
+    margin-top: 5px;
+}
+
+.card-titlepop-stat{
+    font-size: 12px;
+    margin-top: 0px;
+}
+.card-titlepop-duration{
+    text-align: right;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00645D;
+    font-size: 12px;
+    padding: 2px;
+    color: white;
 }
