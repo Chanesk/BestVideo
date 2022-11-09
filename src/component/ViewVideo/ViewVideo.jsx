@@ -21,7 +21,7 @@ const SubcriptionVideo = () =>{
     
         })
         .catch((error)=> console.log(error))
-    },[]);
+    },[channelId]);
 
 
     return (

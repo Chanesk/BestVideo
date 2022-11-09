@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from '../../ContextBox/ContextBox';
+import axios from 'axios';
 import './SearchPage.css';
 
 
@@ -9,8 +10,8 @@ const SearchPage = () =>{
 
     let {inputSearch} = useParams();
     const [videoRows, setVideoRows]= useState([]);
-    const [channelRows, setChannelRows] = useState([]);
-    const [channelId, setChannelId] = useState([]);
+    // const [channelRows, setChannelRows] = useState([]);
+    // const [channelId, setChannelId] = useState([]);
     const {sidebar}= useContext(UserContext) 
 
         useEffect(() =>{
@@ -31,6 +32,10 @@ const SearchPage = () =>{
         }
         setSearchVideo();
     }, [inputSearch]) ; 
+
+
+        
+    
 
   
  
