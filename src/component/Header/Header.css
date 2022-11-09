@@ -6,7 +6,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: #000;
+    background-color: #101010;
 }
 .header-left{
     display: flex;
@@ -39,7 +39,7 @@
     height: 32px;
     padding-left: 32px;
     border-radius: 5px;
-    background-color: #1c1C1C;;
+    background-color: #000;
     border: none;
     color: #b2b2b2;
     font-family: 'Poppins', arial;
