@@ -52,12 +52,16 @@
 }
 
 .header-icon{
-    margin-right: 12px;
+    margin-right: 8px;
     color: #fff;
 }
 .header-icon:hover{
     margin-right: 12px;
     color: #00645D;
     cursor: pointer;
+}
+.header-reseaux-social{
+    margin-left: 12px;
+    margin-right: 12px;
 }
 

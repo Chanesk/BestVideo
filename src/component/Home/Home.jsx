@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../ContextBox/ContextBox';
 import  {Link} from 'react-router-dom';
 import moment from 'moment';
+import numeral from 'numeral';
 import './Home.css'
 
 const Home = () =>{
@@ -31,6 +32,7 @@ const Home = () =>{
                 videoPop.items?.map((videopop,index)=> {
                     const videoId= videopop.id;
                     const views= videopop.statistics.viewCount;
+                    const viewsFormat = numeral(views).format("0.000a");
                     const time=videopop.snippet.publishedAt;
                     
                     return(
@@ -43,7 +45,7 @@ const Home = () =>{
                                 <div className='cardpop-content'>
                                     <p  className='card-titlepop'> {videopop.snippet.channelTitle} </p>
                                     <p className='card-titlepop-content'> {videopop.snippet.localized.title} </p>
-                                    <p className='card-titlepop-stat'>{views} views • {moment(time,"YYYYMMDD").fromNow()}</p>
+                                    <p className='card-titlepop-stat'>{viewsFormat}  views  •  {moment(time,"YYYYMMDD").fromNow()}</p>
                                 </div>
                             </div>
                         </Link>

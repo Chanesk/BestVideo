@@ -6,9 +6,11 @@ import  './Header.css';
 import {Link} from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import VideoCallIcon from '@material-ui/icons/VideoCall';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import  Avatar  from '@material-ui/core/Avatar';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import TwitterIcon from '@material-ui/icons/Twitter';
 
 
 function Header() {
@@ -31,9 +33,13 @@ function Header() {
             </div>
             <div className='header-right'>
                 <Logout />
-                <VideoCallIcon className='header-icon' />
-                <NotificationsIcon className='header-icon' />
-                <Avatar alt='chacha' src={user.profileImg} />
+                <div className='header-reseaux-social'>
+                    <InstagramIcon className='header-icon' />
+                    <FacebookIcon className='header-icon' />
+                    <TwitterIcon className='header-icon' />
+                    <NotificationsIcon className='header-icon' />
+                </div>
+                <Avatar alt={user.name} src={user.profileImg} />
             </div>
 
         </div>
