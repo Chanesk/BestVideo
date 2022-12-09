@@ -9,13 +9,24 @@ import CommentVideo from '../CommentVideo/CommentVideo';
 const PlayerVideo = () =>{
     const {sidebar}= useContext(UserContext);
    let {videoId} = useParams();
+   const opts = {
+      playerVars: {
+        autoplay: 1,
+      },
+    };
    
    return(
     <>
         <div className='video-box' style={{width: sidebar? "100%" : "80%"}}>
-            <YouTube width={750} height={400}videoId={videoId} />
+            <div className="video-comment">
+            <YouTube width={750} height={400}videoId={videoId} 
+            
+            opts={opts}
+            
+            />
             <div>
                 <CommentVideo />
+            </div>
             </div>
         </div>
     </>

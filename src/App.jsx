@@ -6,9 +6,10 @@ import Login from './component/Login/Login';
 import Home from './component/Home/Home';
 import Header from './component/Header/Header';
 import ViewVideo from './component/ViewVideo/ViewVideo';
-import PlayerVideo from './component/PlayerVideo/PlayerVideo'
+import PlayerVideo from './component/PlayerVideo/PlayerVideo';
 import SideBar from './component/SideBar/SideBar';
 import SearchPage from './component/SearchPage/SearchPage';
+
 
 import './App.css'
 
@@ -18,6 +19,9 @@ export default function App() {
   const [user, setUser] = useState(null);
   const [data, setData] = useState(null);
   const [sidebar,setSideBar] = useState(false);
+  const [linkInsta, setLinkInsta] = useState('');
+  const [linkFacebook, setLinkFacebook] = useState('');
+  const [linkTwitter, setLinkTwitter] = useState('');
 
   const showSidebar = () => setSideBar(!sidebar);
   const client_id="541439065925-f2hihosft648nfsi0hoit6ne20dub8ui.apps.googleusercontent.com"
@@ -39,29 +43,35 @@ const updateUser = (currentUser) =>{
   const name = currentUser.getBasicProfile().getName();
   const profileImg = currentUser.getBasicProfile().getImageUrl();
   const token = currentUser.xc.access_token;
+  const email = currentUser.wt.cu;
   setUser({
     name: name,
     profileImg: profileImg,
+    email: email
   });
-  
   let datas = window.localStorage.getItem('datas')
   localStorage.setItem('datas',(token));
   setData(datas)
 };
 
 
+
+
+
 const attachSignin = (element, auth2) =>{
   auth2.attachClickHandler(element, {}, (googleUser) => {
     updateUser(googleUser);
+    
   }, (error) =>{
     console.log(JSON.stringify(error))
   });
 }
+console.log(user)
   return ( 
     <>
     <main className='container'>
     
-      <UserContext.Provider value={{data, user, setUser, showSidebar, sidebar}} >
+<UserContext.Provider value={{data, user, setUser, showSidebar, sidebar, setLinkFacebook, linkFacebook, setLinkInsta, linkInsta, setLinkTwitter, linkTwitter}} >
   
             {
               !user ?
@@ -82,7 +92,7 @@ const attachSignin = (element, auth2) =>{
               
             }
 
-      </UserContext.Provider>
+ </UserContext.Provider>
     </main>
     </>
   )

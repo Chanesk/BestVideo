@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useContext } from 'react';
+import axios from 'axios';
 import { UserContext } from '../../ContextBox/ContextBox';
 import Logout from './Logout/Logout';
 import  './Header.css';
@@ -16,8 +17,37 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 function Header() {
     const {user, showSidebar}= useContext(UserContext);
     const [inputSearch, setInputSearch] = useState('');
+    const getDataUser = async() =>{
+  try{
+    const request = await axios(
+    {
+      url:"http://localhost:5500/",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: {
+        name: user.name,
+        avatarUrl:user.profileImg,
+        facebook: "linkFacebook",
+        twitter:"linkTwitter",
+        linkInsta:"instagram",
+        email:user.email 
+      }
+    }).then((response)=> 
+          console.log(response.data.message)
+    )
+  }
+  catch(error){
+    console.log({error})
+  }
+}
 
+    getDataUser();
+
+    // 
     return (
+      <div>
         <div className='header'>
             <div className='header-left'>
                <MenuIcon className='icon-menu' onClick={showSidebar}/>
@@ -43,6 +73,7 @@ function Header() {
             </div>
 
         </div>
+    </div>
     )
 }
 

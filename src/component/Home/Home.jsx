@@ -16,7 +16,6 @@ const Home = () =>{
                 const reponse= await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&key=${import.meta.env.VITE_YOUTUBE_API_KEY}}&access_token=`+ data)
                 const videoPop = await reponse.json();
                 setVideoPop(videoPop);
-                console.log(videoPop);
             }
             catch(error){
                 console.log("error", error);

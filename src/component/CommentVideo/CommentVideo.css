@@ -1,5 +1,5 @@
 .box-comment{
-    width: 700px;
+    width: 640px;
     border-top: 1px solid #fff;
 }
 .box-comment-user{
@@ -7,7 +7,7 @@
     height: 40px;
     margin-top: 20px;
     margin-bottom: 4px;
-    width: 90%;
+    width: 100%;
 }
 .comment-avatar{
 
@@ -17,7 +17,7 @@
 }
 
 .box-comment-input{
-    width: 85%;
+    width: 90%;
 }
 
 .comment-input{
@@ -35,7 +35,7 @@
 .comment-btn{
     justify-content: flex-end;
     align-items: flex-end;
-    width: 85%;
+    width: 100%;
     display: flex;
     margin-top: 10px;
 }
