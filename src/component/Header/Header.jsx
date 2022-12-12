@@ -14,19 +14,24 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import CreateIcon from '@material-ui/icons/Create';
 
+
 function Header() {
     const {user, showSidebar}= useContext(UserContext);
     const [inputSearch, setInputSearch] = useState('');
-
+    const [profil, setProfil] = useState('');
+    const [profilExist, setProfilExist] = useState(false);
   
+    const showProfil = () =>{
+      setProfil(profil)
+    }
     const getDataUser = async() =>{
-  try{
+    try{
     const request = await axios(
     {
       url:"http://localhost:5500/",
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json", 
       },
       data: {
         name: user.name,
@@ -39,17 +44,26 @@ function Header() {
     }).then((response)=> 
           console.log(response.data.message)
     )
+    }
+    catch(error){
+      console.log({error})
+    }
   }
-  catch(error){
-    console.log({error})
+  getDataUser();
+
+  const ProfilBox = () =>{
+    if(profilExist == true){
+      return(
+        <div className='profil-box' >
+          <div className='profil-box-info'>
+            <CreateIcon /><p>Modifier le profile</p>
+          </div>
+        </div>
+      )
+    }
   }
-}
-
-    getDataUser();
-
-    // 
-    return (
-      <div className='header-box'>
+  return(
+    <div className='header-box'>
         <div className='header'>
             <div className='header-left'>
                <MenuIcon className='icon-menu' onClick={showSidebar}/>
@@ -71,17 +85,20 @@ function Header() {
                     <TwitterIcon className='header-icon' />
                     <NotificationsIcon className='header-icon' />
                 </div>
-                <Avatar alt={user.name} src={user.profileImg} />
+                <Avatar alt={user.name} src={user.profileImg} onClick={()=>{
+                  console.log('oo');
+                  setProfilExist(!profilExist)
+                  showProfil()
+                }}/>
             </div>
 
         </div>
-        <div className='profil-box'>
-          <div className='profil-box-info'>
-            <CreateIcon /><p>Modifier le profile</p>
-          </div>
-        </div>
+        <Link to={'/modifyProfil'}>
+          <ProfilBox/>  
+        </Link>
     </div>
-    )
+  )
+    
 }
 
 export default Header

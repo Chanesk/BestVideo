@@ -15,6 +15,7 @@
     padding: 10px;
     position: absolute;
     width: 97%;
+    
 }
 .header-left{
     display: flex;
@@ -86,6 +87,7 @@
     position: relative;
     left: 83%;
     top: 56px;
+    /* display: none; */
 }
 .profil-box-info{
     display: flex;
