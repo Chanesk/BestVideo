@@ -1,12 +1,20 @@
+.header-box{
+    display: flex;
+    flex-direction: column;
+    background-color: #101010;
+    z-index: 1;
+    top: 0;
+    position: relative;
+    position: sticky;
+    height: 70px;
+}
 .header{
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background-color: #101010;
+    position: absolute;
+    width: 97%;
 }
 .header-left{
     display: flex;
@@ -63,5 +71,28 @@
 .header-reseaux-social{
     margin-left: 12px;
     margin-right: 12px;
+}
+
+.profil-box{
+    width: 15%;
+    height: 32px;
+    color: white;
+    margin-top: 0px;
+    border-radius: 5px;
+    background-color: #000;
+    box-shadow: 
+    -10px -10px 15px rgba(20, 20, 20, 0.5),
+    10px 10px 15px rgba(70, 70, 70, 0.12);
+    position: relative;
+    left: 83%;
+    top: 56px;
+}
+.profil-box-info{
+    display: flex;
+    margin:3px;
+
+}
+.profil-box-info p{
+    margin: 5px 0px 0px 5px ;
 }
 

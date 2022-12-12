@@ -12,11 +12,13 @@ import  Avatar  from '@material-ui/core/Avatar';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
-
+import CreateIcon from '@material-ui/icons/Create';
 
 function Header() {
     const {user, showSidebar}= useContext(UserContext);
     const [inputSearch, setInputSearch] = useState('');
+
+  
     const getDataUser = async() =>{
   try{
     const request = await axios(
@@ -47,7 +49,7 @@ function Header() {
 
     // 
     return (
-      <div>
+      <div className='header-box'>
         <div className='header'>
             <div className='header-left'>
                <MenuIcon className='icon-menu' onClick={showSidebar}/>
@@ -72,6 +74,11 @@ function Header() {
                 <Avatar alt={user.name} src={user.profileImg} />
             </div>
 
+        </div>
+        <div className='profil-box'>
+          <div className='profil-box-info'>
+            <CreateIcon /><p>Modifier le profile</p>
+          </div>
         </div>
     </div>
     )
