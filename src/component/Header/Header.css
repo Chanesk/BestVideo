@@ -76,7 +76,6 @@
 
 .profil-box{
     width: 15%;
-    height: 32px;
     color: white;
     margin-top: 0px;
     border-radius: 5px;
@@ -87,7 +86,7 @@
     position: relative;
     left: 83%;
     top: 56px;
-    /* display: none; */
+
 }
 .profil-box-info{
     display: flex;

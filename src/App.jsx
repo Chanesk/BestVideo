@@ -9,6 +9,7 @@ import ViewVideo from './component/ViewVideo/ViewVideo';
 import PlayerVideo from './component/PlayerVideo/PlayerVideo';
 import SideBar from './component/SideBar/SideBar';
 import SearchPage from './component/SearchPage/SearchPage';
+import ModifyProfil from './component/modifyProfil/ModifyProfil';
 
 
 import './App.css'
@@ -17,6 +18,7 @@ import './App.css'
 export default function App() {
 
   const [user, setUser] = useState(null);
+  const [userId, setUserId] = useState(null);
   const [data, setData] = useState(null);
   const [sidebar,setSideBar] = useState(false);
   const [linkInsta, setLinkInsta] = useState('');
@@ -55,9 +57,6 @@ const updateUser = (currentUser) =>{
 };
 
 
-
-
-
 const attachSignin = (element, auth2) =>{
   auth2.attachClickHandler(element, {}, (googleUser) => {
     updateUser(googleUser);
@@ -71,7 +70,7 @@ console.log(user)
     <>
     <main className='container'>
     
-<UserContext.Provider value={{data, user, setUser, showSidebar, sidebar, setLinkFacebook, linkFacebook, setLinkInsta, linkInsta, setLinkTwitter, linkTwitter}} >
+<UserContext.Provider value={{data, user, setUser, showSidebar, sidebar, setLinkFacebook, linkFacebook, setLinkInsta, linkInsta, setLinkTwitter, linkTwitter, userId, setUserId}} >
   
             {
               !user ?
@@ -86,6 +85,7 @@ console.log(user)
               <Route path="/viewvideo/:channelId" element={<ViewVideo/>}/>
               <Route path="/playervideo/:videoId" element={<PlayerVideo />} />
               <Route path="/search/:inputSearch" element={<SearchPage />} />
+              <Route path="/modifyprofil" element={<ModifyProfil />} />
           </Routes>
               </div>
               </>

@@ -16,7 +16,7 @@ import CreateIcon from '@material-ui/icons/Create';
 
 
 function Header() {
-    const {user, showSidebar}= useContext(UserContext);
+    const {user, showSidebar,userId, setUserId, linkInsta, linkFacebook, linkTwitter}= useContext(UserContext);
     const [inputSearch, setInputSearch] = useState('');
     const [profil, setProfil] = useState('');
     const [profilExist, setProfilExist] = useState(false);
@@ -36,13 +36,16 @@ function Header() {
       data: {
         name: user.name,
         avatarUrl:user.profileImg,
-        facebook: "linkFacebook",
-        twitter:"linkTwitter",
-        linkInsta:"instagram",
+        facebook: linkFacebook,
+        twitter:linkTwitter,
+        instagram:linkInsta,
         email:user.email 
       }
-    }).then((response)=> 
-          console.log(response.data.message)
+    }).then((response)=> {
+          console.log(response.data);
+          setUserId(response.data.user._id);
+          console.log(response.data/user._id)
+        }
     )
     }
     catch(error){
@@ -86,14 +89,13 @@ function Header() {
                     <NotificationsIcon className='header-icon' />
                 </div>
                 <Avatar alt={user.name} src={user.profileImg} onClick={()=>{
-                  console.log('oo');
                   setProfilExist(!profilExist)
                   showProfil()
                 }}/>
             </div>
 
         </div>
-        <Link to={'/modifyProfil'}>
+        <Link to={'/modifyprofil'}>
           <ProfilBox/>  
         </Link>
     </div>
