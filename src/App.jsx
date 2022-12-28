@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import React,{useEffect,useState} from 'react';
 import {gapi, loadAuth2} from 'gapi-script';
 import {UserContext} from './ContextBox/ContextBox';
@@ -10,6 +10,8 @@ import PlayerVideo from './component/PlayerVideo/PlayerVideo';
 import SideBar from './component/SideBar/SideBar';
 import SearchPage from './component/SearchPage/SearchPage';
 import ModifyProfil from './component/modifyProfil/ModifyProfil';
+import InfoUser from './component/InfoUser/InfoUser';
+import AppPlayer from './component/AppPlayer/AppPlayer';
 
 
 import './App.css'
@@ -65,35 +67,29 @@ const attachSignin = (element, auth2) =>{
     console.log(JSON.stringify(error))
   });
 }
-console.log(user)
   return ( 
     <>
-    <main className='container'>
+    <div className='container'>
     
 <UserContext.Provider value={{data, user, setUser, showSidebar, sidebar, setLinkFacebook, linkFacebook, setLinkInsta, linkInsta, setLinkTwitter, linkTwitter, userId, setUserId}} >
   
-            {
-              !user ?
-              <Login id='customBtn'/>
-              :
-              <>
-                <Header />
-              <div className='container-palyer'>
-                <SideBar />
-          <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path="/viewvideo/:channelId" element={<ViewVideo/>}/>
-              <Route path="/playervideo/:videoId" element={<PlayerVideo />} />
-              <Route path="/search/:inputSearch" element={<SearchPage />} />
-              <Route path="/modifyprofil" element={<ModifyProfil />} />
-          </Routes>
-              </div>
-              </>
-              
-            }
+                
+  <Routes element={<appPlayer/>}>
+      <Route path='/' element ={ !user ? <Login id='customBtn'/>: <Navigate to='/user'/> } />
+      <Route path='/login/user' element={<InfoUser />}/>
+    
+                  
+      <Route >
+          <Route path='/home' element={<><Header /><div className='container-palyer'><SideBar /><Home /></div></>}/>
+          <Route path="/viewvideo/:channelId" element={<><Header /><div className='container-palyer'><SideBar /><ViewVideo/></div></>}/>
+          <Route path="/playervideo/:videoId" element={<><Header /><div className='container-palyer'><SideBar /><PlayerVideo /></div></>} />
+          <Route path="/search/:inputSearch" element={<><Header /><div className='container-palyer'><SideBar /><SearchPage /></div></>} />
+          <Route path="/modifyprofil" element={<><Header /><div className='container-palyer'><SideBar /><ModifyProfil /></div></>} />
+      </Route>
+  </Routes>
 
  </UserContext.Provider>
-    </main>
+    </div>
     </>
   )
 }

@@ -17,16 +17,7 @@ const Login= (props) => {
                     <img src={imgcover} alt="view video" className="img-cover"/>
                 </div>
                 <div className="content-login">
-                   <h2><span>bestvideo </span></h2> 
-                   <div className='login-input'>
-                        <input type="url" placeholder='lien instagram' onChange={(e) =>setLinkInsta(e.target.value)} value={linkInsta}  />
-                   </div>
-                   <div className='login-input'>
-                        <input type="url" placeholder='lien twitter' onChange={(e) =>setLinkTwitter(e.target.value)} value={linkTwitter} />
-                   </div>
-                   <div className='login-input'>
-                        <input type="url" placeholder='lien facebook' onChange={(e) =>setLinkFacebook(e.target.value)} value={linkFacebook} />
-                   </div>
+                   <p>cjdijdvjf</p>
                    <div className='btn-login'>
                         <div id={props.id} className='googleButton' >
                             connect with google

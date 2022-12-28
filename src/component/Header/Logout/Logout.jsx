@@ -3,6 +3,7 @@ import { gapi, loadAuth2 } from 'gapi-script';
 import { useContext } from 'react';
 import { UserContext } from '../../../ContextBox/ContextBox';
 import './Logout.css'
+import { Link } from 'react-router-dom';
 
 
  const Logout = () => {
@@ -25,7 +26,9 @@ import './Logout.css'
       });
     }
     return(
+      <Link to='/login'>
         <div id='btn-logout' onClick={signOut} className='google-btn'>Disconnect</div>
+      </Link>
     )
 }
 
