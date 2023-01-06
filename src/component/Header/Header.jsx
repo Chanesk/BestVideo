@@ -24,35 +24,6 @@ function Header() {
     const showProfil = () =>{
       setProfil(profil)
     }
-    const getDataUser = async() =>{
-    try{
-    const request = await axios(
-    {
-      url:"http://localhost:5500/",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", 
-      },
-      data: {
-        name: user.name,
-        avatarUrl:user.profileImg,
-        facebook: linkFacebook,
-        twitter:linkTwitter,
-        instagram:linkInsta,
-        email:user.email 
-      }
-    }).then((response)=> {
-          console.log(response.data);
-          setUserId(response.data.user._id);
-          console.log(response.data/user._id)
-        }
-    )
-    }
-    catch(error){
-      console.log({error})
-    }
-  }
-  getDataUser();
 
   const ProfilBox = () =>{
     if(profilExist == true){

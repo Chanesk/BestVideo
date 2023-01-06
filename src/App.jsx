@@ -23,9 +23,8 @@ export default function App() {
   const [userId, setUserId] = useState(null);
   const [data, setData] = useState(null);
   const [sidebar,setSideBar] = useState(false);
-  const [linkInsta, setLinkInsta] = useState('');
-  const [linkFacebook, setLinkFacebook] = useState('');
-  const [linkTwitter, setLinkTwitter] = useState('');
+  const [linkMediaSocial, setLinkMediaSocial] = useState([]);
+
 
   const showSidebar = () => setSideBar(!sidebar);
   const client_id="541439065925-f2hihosft648nfsi0hoit6ne20dub8ui.apps.googleusercontent.com"
@@ -71,12 +70,12 @@ const attachSignin = (element, auth2) =>{
     <>
     <div className='container'>
     
-<UserContext.Provider value={{data, user, setUser, showSidebar, sidebar, setLinkFacebook, linkFacebook, setLinkInsta, linkInsta, setLinkTwitter, linkTwitter, userId, setUserId}} >
+<UserContext.Provider value={{data, user, setUser, showSidebar, sidebar, linkMediaSocial, setLinkMediaSocial, userId, setUserId}} >
   
                 
   <Routes element={<appPlayer/>}>
       <Route path='/' element ={ !user ? <Login id='customBtn'/>: <Navigate to='/user'/> } />
-      <Route path='/login/user' element={<InfoUser />}/>
+      <Route path='/user' element={<InfoUser />}/>
     
                   
       <Route >
